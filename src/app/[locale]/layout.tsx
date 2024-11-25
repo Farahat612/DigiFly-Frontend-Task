@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { Poppins } from 'next/font/google'
+import LanguageSwitcher from '@/components/LanguageSwitcher'
 import './globals.css'
 
 const poppins = Poppins({
@@ -29,7 +30,10 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <NextIntlClientProvider messages={messages}>
-        <body className={`${poppins.className} antialiased`}>{children}</body>
+        <body className={`${poppins.className} antialiased`}>
+          <LanguageSwitcher />
+          {children}
+        </body>
       </NextIntlClientProvider>
     </html>
   )
