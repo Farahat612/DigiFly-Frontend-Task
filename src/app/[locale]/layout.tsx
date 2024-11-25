@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+import { NextIntlClientProvider } from 'next-intl'
+import { getMessages } from 'next-intl/server'
 import { Poppins } from 'next/font/google'
 import './globals.css'
 
@@ -14,14 +16,21 @@ export const metadata: Metadata = {
     'A frontend challenge for Digi-Fly marketing agency contains a form and a list of users, a leaflet map, and a rich text editor.',
 }
 
-export default function RootLayout({
-  children,
-}: Readonly<{
+type Props = {
   children: React.ReactNode
-}>) {
+  params: { locale: string }
+}
+
+export default async function RootLayout({
+  children,
+  params: { locale },
+}: Props) {
+  const messages = await getMessages()
   return (
-    <html lang='en'>
-      <body className={`${poppins.className} antialiased`}>{children}</body>
+    <html lang={locale}>
+      <NextIntlClientProvider messages={messages}>
+        <body className={`${poppins.className} antialiased`}>{children}</body>
+      </NextIntlClientProvider>
     </html>
   )
 }
