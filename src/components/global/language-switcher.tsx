@@ -25,7 +25,7 @@ export default function LanguageSwitcher() {
   }
 
   return (
-    <div className='fixed top-4 end-4 z-50'>
+    <div className=''>
       <Select value={locale} onValueChange={handleChange}>
         <SelectTrigger className='w-[120px]'>
           <SelectValue placeholder={t('label')} />
@@ -37,7 +37,6 @@ export default function LanguageSwitcher() {
               {loc === 'en' ? (
                 <Image
                   width={15}
-                  height={8}
                   className='inline-block ms-2 mb-1'
                   alt='United Kingdom Flag'
                   src={GB}
@@ -45,7 +44,6 @@ export default function LanguageSwitcher() {
               ) : (
                 <Image
                   width={15}
-                  height={8}
                   className='inline-block ms-6 mb-1'
                   alt='Egypt Flag'
                   src={EG}

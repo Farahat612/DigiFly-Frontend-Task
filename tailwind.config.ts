@@ -79,6 +79,7 @@ const config: Config = {
           800: '#24373A',
           900: '#14373A',
         },
+        'global-bg': '#FCFCFE',
       },
       borderRadius: {
         lg: 'var(--radius)',

@@ -1,14 +1,20 @@
+import { NavBar, Footer } from '@/components/global/'
 import type { Metadata } from 'next'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
-import { Poppins } from 'next/font/google'
-import LanguageSwitcher from '@/components/LanguageSwitcher'
+import { Poppins, Tajawal } from 'next/font/google'
 import './globals.css'
 
 const poppins = Poppins({
   subsets: ['latin'],
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
   variable: '--font-poppins',
+})
+
+const tajawal = Tajawal({
+  subsets: ['arabic'],
+  weight: ['200', '300', '400', '500', '700', '800', '900'],
+  variable: '--font-tajawal',
 })
 
 export const metadata: Metadata = {
@@ -30,9 +36,14 @@ export default async function RootLayout({
   return (
     <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
       <NextIntlClientProvider messages={messages}>
-        <body className={`${poppins.className} antialiased`}>
-          <LanguageSwitcher />
+        <body
+          className={`${
+            locale === 'ar' ? `${tajawal.className}` : `${poppins.className}`
+          } antialiased bg-global-bg`}
+        >
+          <NavBar />
           {children}
+          <Footer />
         </body>
       </NextIntlClientProvider>
     </html>
