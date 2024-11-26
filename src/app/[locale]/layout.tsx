@@ -28,7 +28,7 @@ export default async function RootLayout({
 }: Props) {
   const messages = await getMessages()
   return (
-    <html lang={locale}>
+    <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
       <NextIntlClientProvider messages={messages}>
         <body className={`${poppins.className} antialiased`}>
           <LanguageSwitcher />
