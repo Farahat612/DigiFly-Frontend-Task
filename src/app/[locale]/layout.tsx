@@ -39,7 +39,7 @@ export default async function RootLayout({
         <body
           className={`${
             locale === 'ar' ? `${tajawal.className}` : `${poppins.className}`
-          } antialiased bg-global-bg`}
+          } antialiased w-full bg-gradient-to-br from-white/50 from-10% via-blue-950/30 via-40% to-white/50`}
         >
           <NavBar />
           {children}

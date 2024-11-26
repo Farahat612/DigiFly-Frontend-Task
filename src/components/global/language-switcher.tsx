@@ -25,9 +25,9 @@ export default function LanguageSwitcher() {
   }
 
   return (
-    <div className=''>
+    <div>
       <Select value={locale} onValueChange={handleChange}>
-        <SelectTrigger className='w-[120px]'>
+        <SelectTrigger className='w-[120px] bg-white/70'>
           <SelectValue placeholder={t('label')} />
         </SelectTrigger>
         <SelectContent>
