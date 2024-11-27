@@ -7,14 +7,30 @@ body {
 }
 
 html body[data-scroll-locked] {
-    overflow: visible !important;
-    margin-right: 0 !important;
-  } 
+  overflow: visible !important;
+  margin-right: 0 !important;
+}
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+  .leaflet-mask {
+    mask-image: radial-gradient(
+      ellipse 70% 70% at center,
+      black 30%,
+      transparent 80%
+    );
+    -webkit-mask-image: radial-gradient(
+      ellipse 70% 70% at center,
+      black 30%,
+      transparent 80%
+    );
+  }
+}
+
+.leaflet-container {
+  @apply h-[300px] object-cover leaflet-mask;
 }
 
 @layer base {
