@@ -1,9 +1,10 @@
-import { NavBar, Footer } from '@/components/global/'
+import { Footer, NavBar } from '@/components/global/'
 import type { Metadata } from 'next'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { Poppins, Tajawal } from 'next/font/google'
 import './globals.css'
+import { Providers } from './providers'
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -42,7 +43,7 @@ export default async function RootLayout({
           } antialiased w-full`}
         >
           <NavBar />
-          {children}
+          <Providers>{children}</Providers>
           <Footer />
         </body>
       </NextIntlClientProvider>
