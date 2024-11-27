@@ -17,7 +17,8 @@
     "send": "Send",
     "cancel": "Cancel",
     "delete": "Delete",
-    "update": "Update"
+    "update": "Update",
+    "sending": "Sending"
   },
 
   "toasts": {
@@ -29,7 +30,8 @@
 
   "table": {
     "search": "Search",
-    "no-data": "No data to display"
+    "no-data": "No data to display",
+    "results": "Results"
   },
 
   "shared": {

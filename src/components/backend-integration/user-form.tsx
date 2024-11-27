@@ -1,11 +1,5 @@
 'use client'
 
-import { useTranslations } from 'next-intl'
-import { useForm } from 'react-hook-form'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { toast } from 'sonner'
-import { useAddUserMutation } from '@/lib/features/api/apiSlice'
-import { UserInformation, userSchema } from '@/schemas'
 import { Button } from '@/components/ui/button'
 import {
   Form,
@@ -16,31 +10,12 @@ import {
   FormMessage,
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
+import useUserForm from '@/hooks/useUserForm'
+import { useTranslations } from 'next-intl'
 
 export function UserForm() {
   const t = useTranslations()
-  const [addUser] = useAddUserMutation()
-
-  const form = useForm<UserInformation>({
-    resolver: zodResolver(userSchema),
-    defaultValues: {
-      FirstName: '',
-      LastName: '',
-      Email: '',
-      Phone: '',
-    },
-  })
-
-  async function onSubmit(data: UserInformation) {
-    try {
-      await addUser(data).unwrap()
-      toast.success(t('toasts.user-added'))
-      form.reset()
-    } catch (error) {
-      console.error(error)
-      toast.error(t('toasts.error-msg'))
-    }
-  }
+  const { form, onSubmit } = useUserForm()
 
   return (
     <Form {...form}>
@@ -100,8 +75,15 @@ export function UserForm() {
           )}
         />
         <div className='pt-2'>
-          <Button type='submit' className='w-full py-6' variant='submit'>
-            {t('actions.send')}
+          <Button
+            type='submit'
+            className='w-full py-6'
+            variant='submit'
+            disabled={form.formState.isSubmitting}
+          >
+            {form.formState.isSubmitting
+              ? t('actions.sending') + '...'
+              : t('actions.send')}
           </Button>
         </div>
       </form>

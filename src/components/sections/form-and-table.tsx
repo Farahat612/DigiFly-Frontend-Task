@@ -1,6 +1,8 @@
-import { UserForm } from '../backend-integration/user-form'
-import { UsersTable } from '../backend-integration/users-table'
-import { TypoContent } from '../backend-integration/typo-content'
+import {
+  UserForm,
+  UsersTable,
+  TypoContent,
+} from '@/components/backend-integration'
 
 const FormAndTable = () => {
   return (
@@ -9,15 +11,8 @@ const FormAndTable = () => {
         <TypoContent />
       </div>
       <div className='grid gap-20 md:grid-cols-2'>
-        <div>
-          <UserForm />
-        </div>
-        <div className='flex flex-col gap-4'>
-          <h2 className='text-lg font-semibold text-digifly-purple'>
-            Results:
-          </h2>
-          <UsersTable />
-        </div>
+        <UserForm />
+        <UsersTable />
       </div>
     </section>
   )
