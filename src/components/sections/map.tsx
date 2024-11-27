@@ -7,7 +7,11 @@ const Map = () => {
   const Map = useMemo(
     () =>
       dynamic(() => import('@/components/map/map-render'), {
-        loading: () => <p>A map is loading</p>,
+        loading: () => (
+          <div className='w-full h-[30rem] flex justify-center items-center bg-gray-400/50'>
+            <h1 className='text-2xl text-white'>Loading The Map...</h1>
+          </div>
+        ),
         ssr: false,
       }),
     []
