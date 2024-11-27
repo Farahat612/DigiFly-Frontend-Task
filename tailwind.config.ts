@@ -81,6 +81,9 @@ const config: Config = {
         },
         'global-bg-gardient-start': '#FFF9ED',
         'global-bg-gardient-end': '#93ADE9',
+        'text-dark': '#1A1A1A',
+        'text-gray': '#666666',
+        'text-placeholder': '#B3B3B3',
       },
       borderRadius: {
         lg: 'var(--radius)',
