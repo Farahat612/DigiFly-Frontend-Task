@@ -51,13 +51,12 @@ export const TextEditor = () => {
         onInput={handleContentChange}
         onKeyUp={updateActiveStyles}
         onMouseUp={updateActiveStyles}
-        aria-label='Editable Text Area'
-        aria-labelledby='text-editor-label'
         style={{
           fontFamily,
           direction: isRTL ? 'rtl' : 'ltr',
           textAlign: isRTL ? 'right' : 'left',
         }}
+        title='Text Editor'
       />
     </div>
   )
