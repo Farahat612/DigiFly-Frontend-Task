@@ -24,33 +24,53 @@ export default function LanguageSwitcher() {
 
   return (
     <div>
-      <Select value={locale} onValueChange={handleChange}>
-        <SelectTrigger className='w-[140px] bg-white/70'>
+      <Select
+        value={locale}
+        onValueChange={handleChange}
+        aria-label='Select Language'
+      >
+        <SelectTrigger
+          className='w-auto sm:w-[140px] bg-white/70'
+          aria-label='Language Selector'
+          title='Language Selector'
+        >
           <SelectValue />
         </SelectTrigger>
         <SelectContent>
-          <SelectItem key='en' value='en'>
-            <span className='inline-block w-16'>English</span>
+          <SelectItem
+            key='en'
+            value='en'
+            role='option'
+            aria-label='Switch to English Language'
+          >
+            <span className='hidden sm:inline-block w-16'>English</span>
             <Image
-              width={15}
-              className='inline-block ms-2 mb-1'
-              alt='United Kingdom Flag'
               src={GB}
+              width={15}
+              className='inline-block sm:ms-2 mb-1'
+              alt='United Kingdom Flag'
+              aria-label='United Kingdom Flag'
             />
           </SelectItem>
 
-          <SelectItem key='ar' value='ar'>
+          <SelectItem
+            key='ar'
+            value='ar'
+            role='option'
+            aria-label='تبديل اللغة إلى العربية'
+          >
             <span
-              className='inline-block w-16'
+              className='hidden sm:inline-block w-16'
               style={{ fontFamily: 'Tajawal, sans-serif' }}
             >
               العربية
             </span>
             <Image
-              width={15}
-              className='inline-block ms-2 mb-1'
-              alt='Egypt Flag'
               src={EG}
+              width={15}
+              className='inline-block sm:ms-2 mb-1'
+              alt='Egypt Flag'
+              aria-label='Egypt Flag'
             />
           </SelectItem>
         </SelectContent>

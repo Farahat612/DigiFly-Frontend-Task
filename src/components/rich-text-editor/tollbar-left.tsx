@@ -25,11 +25,16 @@ interface ToolBarLeftProps {
 
 export const ToolBarLeft = ({ activeButtons }: ToolBarLeftProps) => {
   return (
-    <div className='flex items-center gap-1'>
+    <div
+      className='flex items-center gap-1'
+      aria-label='Paragraph Formatting Toolbar'
+    >
       <Button
         variant={activeButtons.justifyLeft ? 'active' : 'ghostActive'}
         size='icon'
         title='Align Left'
+        aria-pressed={activeButtons.justifyLeft}
+        aria-label='Align Left'
         onClick={() => applyStyle('justifyLeft')}
       >
         <AlignLeft className='h-4 w-4' />
@@ -38,6 +43,8 @@ export const ToolBarLeft = ({ activeButtons }: ToolBarLeftProps) => {
         variant={activeButtons.justifyCenter ? 'active' : 'ghostActive'}
         size='icon'
         title='Align Center'
+        aria-pressed={activeButtons.justifyCenter}
+        aria-label='Align Center'
         onClick={() => applyStyle('justifyCenter')}
       >
         <AlignCenter className='h-4 w-4' />
@@ -46,6 +53,8 @@ export const ToolBarLeft = ({ activeButtons }: ToolBarLeftProps) => {
         variant={activeButtons.justifyRight ? 'active' : 'ghostActive'}
         size='icon'
         title='Align Right'
+        aria-pressed={activeButtons.justifyRight}
+        aria-label='Align Right'
         onClick={() => applyStyle('justifyRight')}
       >
         <AlignRight className='h-4 w-4' />
@@ -57,6 +66,8 @@ export const ToolBarLeft = ({ activeButtons }: ToolBarLeftProps) => {
         variant={activeButtons.insertOrderedList ? 'active' : 'ghostActive'}
         size='icon'
         title='Numbered List'
+        aria-pressed={activeButtons.insertOrderedList}
+        aria-label='Numbered List'
         onClick={() => toggleList('insertOrderedList')}
       >
         <ListOrdered className='h-4 w-4' />
@@ -65,6 +76,8 @@ export const ToolBarLeft = ({ activeButtons }: ToolBarLeftProps) => {
         variant={activeButtons.insertUnorderedList ? 'active' : 'ghostActive'}
         size='icon'
         title='Bullet List'
+        aria-pressed={activeButtons.insertUnorderedList}
+        aria-label='Bullet List'
         onClick={() => toggleList('insertUnorderedList')}
       >
         <List className='h-4 w-4' />
@@ -73,6 +86,7 @@ export const ToolBarLeft = ({ activeButtons }: ToolBarLeftProps) => {
         variant='ghostActive'
         size='icon'
         title='Indent'
+        aria-label='Indent'
         onClick={() => toggleIndent(true)}
       >
         <IndentIcon className='h-4 w-4' />
@@ -81,6 +95,7 @@ export const ToolBarLeft = ({ activeButtons }: ToolBarLeftProps) => {
         variant='ghostActive'
         size='icon'
         title='Outdent'
+        aria-label='Outdent'
         onClick={() => toggleIndent(false)}
       >
         <OutdentIcon className='h-4 w-4' />

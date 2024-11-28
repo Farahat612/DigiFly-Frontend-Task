@@ -38,12 +38,13 @@ export function MapReusable({
           backgroundImage:
             'linear-gradient(rgba(0,0,0,0) 0%, gray 10%, gray 90%, rgba(0,0,0,0)',
         }}
+        aria-label='Map showing location'
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url='https://tile.openstreetmap.org/{z}/{x}/{y}.png'
         />
-        <Marker position={position} icon={markerIcon}>
+        <Marker position={position} icon={markerIcon} tabindex='0'>
           <Tooltip
             permanent
             direction='top'
