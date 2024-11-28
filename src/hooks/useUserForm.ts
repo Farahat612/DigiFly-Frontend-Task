@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { toast } from 'sonner'
-import { useAddUserMutation } from '@/lib/features/api/apiSlice'
+import { useAddUserMutation } from '@/store/features/api/apiSlice'
 import { UserInformation, userSchema } from '@/schemas'
 import { useTranslations } from 'next-intl'
 

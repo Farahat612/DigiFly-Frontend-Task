@@ -27,13 +27,13 @@ export default function LanguageSwitcher() {
   return (
     <div>
       <Select value={locale} onValueChange={handleChange}>
-        <SelectTrigger className='w-[120px] bg-white/70'>
+        <SelectTrigger className='w-[140px] bg-white/70'>
           <SelectValue placeholder={t('label')} />
         </SelectTrigger>
         <SelectContent>
           {locales.map((loc) => (
             <SelectItem key={loc} value={loc}>
-              {t(loc)}
+              <span className='inline-block w-16'>{t(loc)}</span>
               {loc === 'en' ? (
                 <Image
                   width={15}
@@ -44,7 +44,7 @@ export default function LanguageSwitcher() {
               ) : (
                 <Image
                   width={15}
-                  className='inline-block ms-6 mb-1'
+                  className='inline-block ms-2 mb-1'
                   alt='Egypt Flag'
                   src={EG}
                 />

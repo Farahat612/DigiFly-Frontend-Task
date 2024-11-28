@@ -10,7 +10,7 @@ import {
   FormMessage,
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
-import useUserForm from '@/hooks/useUserForm'
+import {useUserForm} from '@/hooks'
 import { useTranslations } from 'next-intl'
 
 export function UserForm() {
