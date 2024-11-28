@@ -25,15 +25,15 @@ export default function LanguageSwitcher() {
   return (
     <div>
       <Select value={locale} onValueChange={handleChange}>
-        <SelectTrigger className='w-[140px] bg-white/70'>
+        <SelectTrigger className='w-auto sm:w-[140px] bg-white/70'>
           <SelectValue />
         </SelectTrigger>
         <SelectContent>
           <SelectItem key='en' value='en'>
-            <span className='inline-block w-16'>English</span>
+            <span className='hidden sm:inline-block w-16'>English</span>
             <Image
               width={15}
-              className='inline-block ms-2 mb-1'
+              className='inline-block sm:ms-2 mb-1'
               alt='United Kingdom Flag'
               src={GB}
             />
@@ -41,14 +41,14 @@ export default function LanguageSwitcher() {
 
           <SelectItem key='ar' value='ar'>
             <span
-              className='inline-block w-16'
+              className='hidden sm:inline-block w-16'
               style={{ fontFamily: 'Tajawal, sans-serif' }}
             >
               العربية
             </span>
             <Image
               width={15}
-              className='inline-block ms-2 mb-1'
+              className='inline-block sm:ms-2 mb-1'
               alt='Egypt Flag'
               src={EG}
             />

@@ -19,7 +19,7 @@ export const TextEditor = () => {
 
   return (
     <div className='bg-background rounded-sm shadow-lg overflow-hidden'>
-      <div className='flex items-center justify-between gap-2 p-2 bg-editor-toolbar-bg border-b'>
+      <div className='flex items-center justify-between gap-2 p-2 bg-editor-toolbar-bg border-b flex-wrap'>
         {/* Left: Paragraph Formatting */}
         <ToolBarLeft activeButtons={activeButtons} />
 

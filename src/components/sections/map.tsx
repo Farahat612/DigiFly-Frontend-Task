@@ -16,10 +16,16 @@ const Map = () => {
     []
   )
   return (
-    <section className='w-full bg-gradient-to-tr from-global-bg-gardient-start/40 to-global-bg-gardient-end/50 pt-32 space-y-24'>
-      <SectionHeader section={2} className='px-16' />
-      <Map />
-    </section>
+    <>
+      <section className='w-full bg-gradient-to-tr from-global-bg-gardient-start/40 to-global-bg-gardient-end/50 pt-32 space-y-24'>
+        <div className='px-6 md:px-10 lg:px-16'>
+          <div className='max-w-screen-2xl mx-auto'>
+            <SectionHeader section={2} />
+          </div>
+        </div>
+        <Map />
+      </section>
+    </>
   )
 }
 

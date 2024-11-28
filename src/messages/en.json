@@ -2,8 +2,8 @@
   "navbar": {
     "home": "Home",
     "sections": "Sections",
-    "about": "About Us",
-    "contact": "Contact Us"
+    "about": "About",
+    "contact": "Contact"
   },
 
   "fields": {

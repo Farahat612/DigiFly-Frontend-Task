@@ -22,7 +22,7 @@ export function UsersTable() {
         {t('table.results')} :
       </h2>
       <div className='rounded-[0.12rem] border border-zinc-300/80 bg-white flex-grow shadow-[0px_4px_12px_0px_rgba(0,0,0,0.08)]'>
-        <Table>
+        <Table className='text-xs xl:text-base'>
           <TableHeader>
             <TableRow>
               <TableHead className='ps-6'>{t('fields.first-name')}</TableHead>
