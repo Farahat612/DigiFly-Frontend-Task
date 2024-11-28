@@ -22,6 +22,10 @@ const buttonVariants = cva(
 
         submit:
           'bg-digifly-green text-primary-foreground shadow hover:bg-digifly-green/90 rounded-[0.12rem]',
+
+        active:
+          'bg-digifly-green text-primary-foreground shadow hover:bg-digifly-green/90 rounded-[0.12rem]',
+        ghostActive: 'hover:bg-digifly-green hover:text-white/80',
       },
       size: {
         default: 'h-9 px-4 py-2',

@@ -1,57 +1,17 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 'use client'
 
-import { Button } from '@/components/ui/button'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select'
-import { Separator } from '@/components/ui/separator'
 import {
   setFontFamily,
   toggleDirection,
   updateContent,
 } from '@/lib/features/textEditorSlice'
 import { useAppDispatch, useAppSelector } from '@/lib/store'
-import {
-  applyStyle,
-  insertDivider,
-  isStyleActive,
-  toggleIndent,
-  toggleList,
-} from '@/lib/textEditorUtils'
-import {
-  AlignCenter,
-  AlignLeft,
-  AlignRight,
-  Bold,
-  IndentIcon,
-  Italic,
-  Languages,
-  List,
-  ListOrdered,
-  MinusSquare,
-  OutdentIcon,
-  Redo2,
-  Strikethrough,
-  Underline,
-  Undo2,
-} from 'lucide-react'
+import { applyStyle, isStyleActive } from '@/lib/textEditorUtils'
 import { useEffect, useRef, useState } from 'react'
+import { ToolBarLeft, ToolBarMiddle, ToolBarRight } from './'
 
-const FONTS = [
-  'Helvetica',
-  'Arial',
-  'Times New Roman',
-  'Courier New',
-  'Georgia',
-  'Verdana',
-]
-
-const TextEditor = () => {
+export const TextEditor = () => {
   const dispatch = useAppDispatch()
   const { content, fontFamily, isRTL } = useAppSelector(
     (state) => state.textEditor
@@ -132,166 +92,28 @@ const TextEditor = () => {
   }
 
   return (
-    <div className='bg-background rounded-lg shadow-lg overflow-hidden'>
-      <div className='flex items-center justify-between gap-2 p-2 bg-muted/40 border-b'>
+    <div className='bg-background rounded-sm shadow-lg overflow-hidden'>
+      <div className='flex items-center justify-between gap-2 p-2 bg-editor-toolbar-bg border-b'>
         {/* Left: Paragraph Formatting */}
-        <div className='flex items-center gap-1'>
-          <Button
-            variant={activeButtons.justifyLeft ? 'secondary' : 'ghost'}
-            size='icon'
-            title='Align Left'
-            onClick={() => applyStyle('justifyLeft')}
-          >
-            <AlignLeft className='h-4 w-4' />
-          </Button>
-          <Button
-            variant={activeButtons.justifyCenter ? 'secondary' : 'ghost'}
-            size='icon'
-            title='Align Center'
-            onClick={() => applyStyle('justifyCenter')}
-          >
-            <AlignCenter className='h-4 w-4' />
-          </Button>
-          <Button
-            variant={activeButtons.justifyRight ? 'secondary' : 'ghost'}
-            size='icon'
-            title='Align Right'
-            onClick={() => applyStyle('justifyRight')}
-          >
-            <AlignRight className='h-4 w-4' />
-          </Button>
-
-          <Separator orientation='vertical' className='h-6 mx-1' />
-
-          <Button
-            variant={activeButtons.insertOrderedList ? 'secondary' : 'ghost'}
-            size='icon'
-            title='Numbered List'
-            onClick={() => toggleList('insertOrderedList')}
-          >
-            <ListOrdered className='h-4 w-4' />
-          </Button>
-          <Button
-            variant={activeButtons.insertUnorderedList ? 'secondary' : 'ghost'}
-            size='icon'
-            title='Bullet List'
-            onClick={() => toggleList('insertUnorderedList')}
-          >
-            <List className='h-4 w-4' />
-          </Button>
-          <Button
-            variant='ghost'
-            size='icon'
-            title='Indent'
-            onClick={() => toggleIndent(true)}
-          >
-            <IndentIcon className='h-4 w-4' />
-          </Button>
-          <Button
-            variant='ghost'
-            size='icon'
-            title='Outdent'
-            onClick={() => toggleIndent(false)}
-          >
-            <OutdentIcon className='h-4 w-4' />
-          </Button>
-        </div>
+        <ToolBarLeft activeButtons={activeButtons} />
 
         {/* Middle: Text Formatting */}
-        <div className='flex items-center gap-1'>
-          <Button
-            variant={activeStyles.bold ? 'secondary' : 'ghost'}
-            size='icon'
-            title='Bold'
-            onClick={() => handleStyleClick('bold')}
-          >
-            <Bold className='h-4 w-4' />
-          </Button>
-          <Button
-            variant={activeStyles.italic ? 'secondary' : 'ghost'}
-            size='icon'
-            title='Italic'
-            onClick={() => handleStyleClick('italic')}
-          >
-            <Italic className='h-4 w-4' />
-          </Button>
-          <Button
-            variant={activeStyles.underline ? 'secondary' : 'ghost'}
-            size='icon'
-            title='Underline'
-            onClick={() => handleStyleClick('underline')}
-          >
-            <Underline className='h-4 w-4' />
-          </Button>
-          <Button
-            variant={activeStyles.strikethrough ? 'secondary' : 'ghost'}
-            size='icon'
-            title='Strike Through'
-            onClick={() => handleStyleClick('strikeThrough')}
-          >
-            <Strikethrough className='h-4 w-4' />
-          </Button>
-
-          <Separator orientation='vertical' className='h-6 mx-1' />
-
-          <Button
-            variant='ghost'
-            size='icon'
-            title='Undo'
-            onClick={() => document.execCommand('undo', false)}
-          >
-            <Undo2 className='h-4 w-4' />
-          </Button>
-          <Button
-            variant='ghost'
-            size='icon'
-            title='Redo'
-            onClick={() => document.execCommand('redo', false)}
-          >
-            <Redo2 className='h-4 w-4' />
-          </Button>
-
-          <Separator orientation='vertical' className='h-6 mx-1' />
-
-          <Button
-            variant='ghost'
-            size='icon'
-            title='Insert Divider'
-            onClick={insertDivider}
-          >
-            <MinusSquare className='h-4 w-4' />
-          </Button>
-        </div>
+        <ToolBarMiddle
+          activeStyles={activeStyles}
+          handleStyleClick={handleStyleClick}
+        />
 
         {/* Right: Font Selection and Direction */}
-        <div className='flex items-center gap-2'>
-          <Select onValueChange={handleFontChange} value={fontFamily}>
-            <SelectTrigger className='w-[180px]'>
-              <SelectValue placeholder='Select a font' />
-            </SelectTrigger>
-            <SelectContent>
-              {FONTS.map((font) => (
-                <SelectItem key={font} value={font}>
-                  <span style={{ fontFamily: font }}>{font}</span>
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-
-          <Button
-            variant='ghost'
-            size='icon'
-            title='Toggle RTL/LTR'
-            onClick={handleToggleDirection}
-          >
-            <Languages className='h-4 w-4' />
-          </Button>
-        </div>
+        <ToolBarRight
+          fontFamily={fontFamily}
+          handleFontChange={handleFontChange}
+          handleToggleDirection={handleToggleDirection}
+        />
       </div>
 
       <div
         ref={editorRef}
-        className='min-h-[500px] p-4 bg-background focus:outline-none'
+        className='min-h-[500px] p-4 bg-editor-bg focus:outline-none'
         contentEditable
         suppressContentEditableWarning
         onInput={handleContentChange}
@@ -306,5 +128,3 @@ const TextEditor = () => {
     </div>
   )
 }
-
-export default TextEditor

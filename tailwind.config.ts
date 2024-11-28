@@ -84,6 +84,8 @@ const config: Config = {
         'text-dark': '#1A1A1A',
         'text-gray': '#666666',
         'text-placeholder': '#B3B3B3',
+        'editor-toolbar-bg': '#F8F7FC',
+        'editor-bg': '#F8F7FF',
       },
       borderRadius: {
         lg: 'var(--radius)',
