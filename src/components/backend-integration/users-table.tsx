@@ -8,7 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
-import { useGetUsersQuery } from '@/lib/features/api/apiSlice'
+import { useGetUsersQuery } from '@/store/features/api/apiSlice'
 import { useTranslations } from 'next-intl'
 import { TableSkeleton } from './table-skeleton'
 
