@@ -15,7 +15,7 @@ interface MapReusableProps {
 }
 
 const markerIcon = new L.Icon({
-  iconUrl: '/map-marker.PNG',
+  iconUrl: '/map-marker.png',
   iconSize: [25, 25],
   iconAnchor: [12, 41],
   popupAnchor: [1, -34],

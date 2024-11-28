@@ -18,7 +18,7 @@ const NavLinks = () => {
         return (
           <Link
             key={keyword}
-            href={href}
+            href={`/${locale}`}
             className={`font-medium ${
               isActive ? 'text-digifly-green' : 'text-neutral-700'
             }`}
