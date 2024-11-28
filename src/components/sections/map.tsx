@@ -17,7 +17,7 @@ const Map = () => {
     []
   )
   return (
-    <section className='w-full min-h-[800px] bg-gradient-to-tr from-global-bg-gardient-start/40 to-global-bg-gardient-end/50 pt-36 space-y-24'>
+    <section className='w-full bg-gradient-to-tr from-global-bg-gardient-start/40 to-global-bg-gardient-end/50 pt-32 space-y-24'>
       <TypoContent />
       <Map />
     </section>
