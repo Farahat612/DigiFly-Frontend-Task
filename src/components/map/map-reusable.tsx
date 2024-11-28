@@ -44,15 +44,17 @@ export function MapReusable({
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url='https://tile.openstreetmap.org/{z}/{x}/{y}.png'
         />
-        <Marker position={position} icon={markerIcon} tabindex='0'>
-          <Tooltip
-            permanent
-            direction='top'
-            className=' flex flex-col justify-center bg-transparent opacity-100 text-white font-medium text-lg border-none rounded-lg relative align-middle w-[16rem] h-[6rem] !shadow-[0px_4px_25px_0px_rgba(109, 92, 186, 1)]'
-          >
-            {tooltipContent}
-          </Tooltip>
-        </Marker>
+        <div role='button' tabIndex={0} aria-label='Company location marker'>
+          <Marker position={position} icon={markerIcon}>
+            <Tooltip
+              permanent
+              direction='top'
+              className='flex flex-col justify-center bg-transparent opacity-100 text-white font-medium text-lg border-none rounded-lg relative align-middle w-[16rem] h-[6rem] !shadow-[0px_4px_25px_0px_rgba(109, 92, 186, 1)]'
+            >
+              {tooltipContent}
+            </Tooltip>
+          </Marker>
+        </div>
       </MapContainer>
     </div>
   )
