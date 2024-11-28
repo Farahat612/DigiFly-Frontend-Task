@@ -1,5 +1,4 @@
-import { TypoContent } from '@/components/map'
-
+import { SectionHeader } from '@/components/global'
 import dynamic from 'next/dynamic'
 import { useMemo } from 'react'
 
@@ -18,7 +17,7 @@ const Map = () => {
   )
   return (
     <section className='w-full bg-gradient-to-tr from-global-bg-gardient-start/40 to-global-bg-gardient-end/50 pt-32 space-y-24'>
-      <TypoContent />
+      <SectionHeader section={2} className='px-16' />
       <Map />
     </section>
   )

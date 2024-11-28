@@ -1,6 +1,6 @@
-import { UsersTable } from './users-table'
-import { TypoContent } from './typo-content'
-import { UserForm } from './user-form'
 import { TableSkeleton } from './table-skeleton'
+import { UserForm } from './user-form'
+import { UsersTable } from './users-table'
 
-export { UserForm, UsersTable, TypoContent, TableSkeleton }
+export { TableSkeleton, UserForm, UsersTable }
+
