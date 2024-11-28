@@ -31,24 +31,30 @@ export const ToolBarRight = ({
   handleToggleDirection,
 }: ToolBarRightProps) => {
   return (
-    <div className='flex items-center gap-2'>
-      <Select onValueChange={handleFontChange} value={fontFamily}>
-        <SelectTrigger className='w-[180px]'>
-          <SelectValue placeholder='Select a font' />
+    <div
+      className='flex items-center gap-1'
+      aria-label='Font Selection and Direction Toolbar'
+    >
+      <Select value={fontFamily} onValueChange={handleFontChange}>
+        <SelectTrigger
+          className='w-auto sm:w-[140px] bg-white/70'
+          aria-label='Font Family Selector'
+        >
+          <SelectValue />
         </SelectTrigger>
         <SelectContent>
           {FONTS.map((font) => (
-            <SelectItem key={font} value={font}>
-              <span style={{ fontFamily: font }}>{font}</span>
+            <SelectItem key={font} value={font} role='option'>
+              {font}
             </SelectItem>
           ))}
         </SelectContent>
       </Select>
-
       <Button
         variant='ghostActive'
         size='icon'
-        title='Toggle RTL/LTR'
+        title='Toggle Text Direction'
+        aria-label='Toggle Text Direction'
         onClick={handleToggleDirection}
       >
         <Languages className='h-4 w-4' />

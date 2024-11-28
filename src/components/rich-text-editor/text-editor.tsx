@@ -18,8 +18,14 @@ export const TextEditor = () => {
   } = useTextEditor()
 
   return (
-    <div className='bg-background rounded-sm shadow-lg overflow-hidden'>
-      <div className='flex items-center justify-between gap-2 p-2 bg-editor-toolbar-bg border-b flex-wrap'>
+    <div
+      className='bg-background rounded-sm shadow-lg overflow-hidden'
+      aria-label='Rich Text Editor'
+    >
+      <div
+        className='flex items-center justify-between gap-2 p-2 bg-editor-toolbar-bg border-b flex-wrap'
+        aria-label='Text Editor Toolbar'
+      >
         {/* Left: Paragraph Formatting */}
         <ToolBarLeft activeButtons={activeButtons} />
 
@@ -45,6 +51,8 @@ export const TextEditor = () => {
         onInput={handleContentChange}
         onKeyUp={updateActiveStyles}
         onMouseUp={updateActiveStyles}
+        aria-label='Editable Text Area'
+        aria-labelledby='text-editor-label'
         style={{
           fontFamily,
           direction: isRTL ? 'rtl' : 'ltr',

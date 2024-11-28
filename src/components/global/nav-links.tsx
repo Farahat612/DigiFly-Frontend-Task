@@ -22,6 +22,9 @@ const NavLinks = () => {
             className={`font-medium ${
               isActive ? 'text-digifly-green' : 'text-neutral-700'
             }`}
+            aria-current={isActive ? 'page' : undefined}
+            aria-label={`Navigate to ${t(keyword)}`}
+            title={`Navigate to ${t(keyword)}`}
           >
             {t(keyword)}
           </Link>

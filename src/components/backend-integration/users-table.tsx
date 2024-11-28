@@ -22,31 +22,39 @@ export function UsersTable() {
         {t('table.results')} :
       </h2>
       <div className='rounded-[0.12rem] border border-zinc-300/80 bg-white flex-grow shadow-[0px_4px_12px_0px_rgba(0,0,0,0.08)]'>
-        <Table className='text-xs xl:text-base'>
+        <Table className='text-xs xl:text-base' aria-label='Users Table'>
           <TableHeader>
-            <TableRow>
-              <TableHead className='ps-6'>{t('fields.first-name')}</TableHead>
-              <TableHead>{t('fields.last-name')}</TableHead>
-              <TableHead>{t('fields.phone')}</TableHead>
-              <TableHead className='pe-6'>{t('fields.email')}</TableHead>
+            <TableRow role='row'>
+              <TableHead scope='col' className='ps-6'>
+                {t('fields.first-name')}
+              </TableHead>
+              <TableHead scope='col'>{t('fields.last-name')}</TableHead>
+              <TableHead scope='col'>{t('fields.phone')}</TableHead>
+              <TableHead scope='col' className='pe-6'>
+                {t('fields.email')}
+              </TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {isLoading ? (
               <TableSkeleton />
             ) : users.length === 0 ? (
-              <TableRow>
-                <TableCell colSpan={4} className='text-center px-6'>
+              <TableRow role='row'>
+                <TableCell role='cell' colSpan={4} className='text-center px-6'>
                   {t('table.no-data')}
                 </TableCell>
               </TableRow>
             ) : (
               users.map((user) => (
-                <TableRow key={user.Email}>
-                  <TableCell className='ps-6'>{user.FirstName}</TableCell>
-                  <TableCell>{user.LastName}</TableCell>
-                  <TableCell>{user.Phone}</TableCell>
-                  <TableCell className='pe-6 lowercase'>{user.Email}</TableCell>
+                <TableRow key={user.Email} role='row'>
+                  <TableCell role='cell' className='ps-6'>
+                    {user.FirstName}
+                  </TableCell>
+                  <TableCell role='cell'>{user.LastName}</TableCell>
+                  <TableCell role='cell'>{user.Phone}</TableCell>
+                  <TableCell role='cell' className='pe-6 lowercase'>
+                    {user.Email}
+                  </TableCell>
                 </TableRow>
               ))
             )}
