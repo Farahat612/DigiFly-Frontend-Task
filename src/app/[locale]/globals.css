@@ -11,6 +11,23 @@ html body[data-scroll-locked] {
   margin-right: 0 !important;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #6d5cbc;
+  border-radius: 5px;
+  border: none;
+  border-color: #6d5cbc;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #6e5cbc9a;
+  border-radius: 5px;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
